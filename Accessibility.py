@@ -7,10 +7,16 @@ def browse_button():
     print(filename)
 
 def say_it():
-    print("No")
+    if txt2voiceBox.get("1.0", Tkinter.END)=="\n":
+        tkMessageBox.showinfo("Error", "The text box is empty!")
+    else:
+        print("No")
 
 def about():
-    tkMessageBox.showinfo("About", "It's only me for now.")
+    tkMessageBox.showinfo("About", "I don't know yet.")
+
+def credits():
+    tkMessageBox.showinfo("Credits", "It's only me for now.")
 
 root = Tkinter.Tk()
 root.title("Accessibility")
@@ -58,10 +64,16 @@ quitButton = Tkinter.Button(frame,
                    command=quit)
 quitButton.pack(side=Tkinter.RIGHT)
 
+creditsButton = Tkinter.Button(frame, 
+                   text="Credits", 
+                   fg="black",
+                   command=credits)
+creditsButton.pack(side=Tkinter.LEFT)
+
 aboutButton = Tkinter.Button(frame, 
                    text="About", 
                    fg="black",
                    command=about)
-aboutButton.pack(side=Tkinter.LEFT)
+aboutButton.pack(side=Tkinter.BOTTOM)
 
 root.mainloop()
